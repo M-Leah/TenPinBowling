@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+}
+
+#page-wrap {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.main_title {
+    font-family: "Tw Cen MT";
+    color: crimson;
+    text-align: center;
+    font-weight: 300;
+    padding: 25px;
+    border-bottom: solid 1px slategray;
+}
+
+#border {
+    width: 800px;
+    margin: 5em auto;
+    border: solid 2px crimson;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.gap {
+    margin: 1em;
+}
+
+.input_box {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    border: solid 1px lightslategray;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
