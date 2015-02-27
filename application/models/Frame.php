@@ -78,6 +78,14 @@ class Frame
         return false;
     }
 
+    /**
+     * Method to insert the details from a standard segment into a frame
+     * @param $playerName
+     * @param $frame
+     * @param $firstSegment
+     * @param $secondSegment
+     * @return void
+     */
     public function insertStandardSegment($playerName, $frame, $firstSegment, $secondSegment)
     {
         $sql = "UPDATE frame
@@ -93,6 +101,15 @@ class Frame
         $query->execute();
     }
 
+    /**
+     * Method to insert a frame's data into the database
+     * @param $playerName
+     * @param $frame
+     * @param $firstSegment
+     * @param $secondSegment
+     * @param $thirdSegment
+     * @return void
+     */
     public function insertFinalSegment($playerName, $frame, $firstSegment, $secondSegment, $thirdSegment)
     {
         $sql = "UPDATE frame
@@ -110,6 +127,11 @@ class Frame
     }
 
 
+    /**
+     * Method to return all frame details for a specific player
+     * @param $playerName
+     * @return array | bool
+     */
     public function getFramesByPlayer($playerName)
     {
         $sql = "SELECT *
