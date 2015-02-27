@@ -12,6 +12,7 @@ class FrameCalculator
     /**
      * Method to calculate the score awarded for a players frames
      * @param $playerFrames
+     * @return array
      */
     public function calcScore($playerFrames)
     {
@@ -28,7 +29,13 @@ class FrameCalculator
         return $scoresArray;
 
     }
+    
 
+    /**
+     * Method evaluates cascading scores and returns them in an array
+     * @param $scoresArray
+     * @return array
+     */
     public function cascadingScores($scoresArray)
     {
 
@@ -53,6 +60,7 @@ class FrameCalculator
 
         return $scoresArray;
     }
+    
 
     /**
      * Method to loop through player frames and convert them into relevant scores (Strike/Spare)
@@ -117,7 +125,12 @@ class FrameCalculator
     }
 
 
-
+    /**
+     * Method evaulates whether the frame is a Strike.
+     * @param $firstSegment
+     * @param $secondSegment
+     * @return boolean
+     */
     public function isStrike($firstSegment)
     {
         if ($firstSegment == 10) {
@@ -128,6 +141,12 @@ class FrameCalculator
         return false;
     }
 
+    /**
+     * Method evaulates whether the frame is a Spare.
+     * @param $firstSegment
+     * @param $secondSegment
+     * @return boolean
+     */
     public function isSpare($firstSegment, $secondSegment)
     {
         $score = $firstSegment + $secondSegment;
@@ -138,6 +157,12 @@ class FrameCalculator
         return false;
     }
 
+    /**
+     * Method evaulates whether the final frame is a Spare.
+     * @param $firstSegment
+     * @param $secondSegment
+     * @return boolean
+     */
     public function isFinalSpare($firstSegment, $secondSegment)
     {
         $score = $secondSegment;
@@ -149,9 +174,16 @@ class FrameCalculator
     }
 
 
-
+    /**
+     * Method to calculate Strike and Spare Scores
+     * Method alters the current 'Strike' / 'Spare' to their numeric value with the additional bonus points.
+     * @param $playerScores
+     * @return array
+     */
     public function calcStrike($playerScores)
     {
+        // Method needs renaming, calculates Spares AND Strikes.
+        
         // Loop for each player
         $position = 0;
         foreach($playerScores as $player) {
@@ -198,14 +230,14 @@ class FrameCalculator
 
                 $frames++;
             }
-
-
+            
             $position++;
 
         }
 
         return $playerScores;
     }
+
 
     /**
      * Method to work out the amount of balls awarded for the final frame
@@ -232,8 +264,12 @@ class FrameCalculator
     }
 
 
-
-
+    /**
+     * Method which converts the Score in word version to a Number
+     * (Spare/Strike > Return 10)
+     * @param $score
+     * @return int
+     */
     public function convertFromWords($score)
     {
         if ($score === 'Strike' || $score === 'Spare') {
